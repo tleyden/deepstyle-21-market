@@ -21,7 +21,15 @@ def buy_request_to_job(buy_dictionary):
         attachments["content_image"] = {
             "data": download_and_base64(buy_dictionary["content_image_url"])
         }
-
+    if buy_dictionary.has_key("style_image_base64_data"):
+        attachments["style_image"] = {
+            "data": buy_dictionary["style_image_base64_data"]
+        }
+    if buy_dictionary.has_key("content_image_base64_data"):
+        attachments["content_image"] = {
+            "data": buy_dictionary["content_image_base64_data"]
+        }
+        
     result["_attachments"] = attachments
     return result
 

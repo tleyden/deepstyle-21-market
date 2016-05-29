@@ -1,0 +1,62 @@
+---
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: DeepStyle
+  description: Run DeepStyle (aka NeuralStyle) in the cloud 
+  x-21-github-profile-url: https://github.com/tleyden
+  x-21-github-project-url: https://github.com/tleyden/deepstyle
+  x-21-quick-buy: "21 buy -X POST -H \"Content-Type: application/json\" -d 'TBD' http://10.244.164.194:8000/deepstyle"
+  x-21-category: utilities
+  x-21-keywords:
+    - OCR
+  x-21-app-image: "https://cdn.filepicker.io/api/file/FIXME"
+  x-21-total-price:
+    min: 10000
+    max: 10000
+  contact:
+    name: Traun Leyden
+    email: traun.leyden@gmail.com
+  license:
+     name: Apache2 License
+schemes:
+  - http
+basePath: /
+host: 10.244.164.194:8000
+x-21-manifest-path: /manifest
+paths:
+  /buy:
+    post:
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Pass image url and other info to decode image to text via OCR
+          required: true
+          schema:
+            $ref: "#/definitions/Buy"
+      responses:
+        200:
+          description: OK
+definitions:
+  Buy:
+    type: object
+    description: Request to create a new DeepStyle image given the source and style image
+    properties:
+      style_image_url:
+        type: string
+        description: The URL of the style image to process.  For example, an image of a painting.  
+      content_image_url:
+        type: string
+        description: The URL of the content image to process.  For example, a photo of you.
+      style_image_base64_data:
+        type: string
+        description: The base64 data of the style image to process.  Use this instead of style_image_url, but not both.
+      content_image_base64_data:
+        type: string
+        description: The base64 data of the content image to process.  Use this instead of content_image_url, but not both.
+
+              
+          
+        

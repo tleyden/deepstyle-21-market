@@ -8,7 +8,8 @@
 		"sudo apt-get update -y",
                 "sudo apt-get install -y curl",
                 "curl https://21.co | sh",
-                "21 update"
+                "21 update",
+                "sudo pip3 install flask"
 	    ]
 	},
   ],

@@ -1,5 +1,6 @@
-import urllib
+
 import base64
+import urllib.request
 
 def buy_request_to_job(buy_dictionary):
     """
@@ -13,19 +14,19 @@ def buy_request_to_job(buy_dictionary):
     }
 
     attachments = {}
-    if buy_dictionary.has_key("style_image_url"):
+    if "style_image_url" in buy_dictionary:
         attachments["style_image"] = {
             "data": download_and_base64(buy_dictionary["style_image_url"])
         }
-    if buy_dictionary.has_key("content_image_url"):
+    if "content_image_url" in buy_dictionary:
         attachments["content_image"] = {
             "data": download_and_base64(buy_dictionary["content_image_url"])
         }
-    if buy_dictionary.has_key("style_image_base64_data"):
+    if "style_image_base64_data" in buy_dictionary:
         attachments["style_image"] = {
             "data": buy_dictionary["style_image_base64_data"]
         }
-    if buy_dictionary.has_key("content_image_base64_data"):
+    if "content_image_base64_data" in buy_dictionary:
         attachments["content_image"] = {
             "data": buy_dictionary["content_image_base64_data"]
         }
@@ -35,7 +36,8 @@ def buy_request_to_job(buy_dictionary):
 
 
 def download_and_base64(image_url):
-    f = urllib.urlopen(image_url)
-    raw_content = f.read()
-    content_base64 = base64.standard_b64encode(raw_content)
-    return content_base64
+    
+    with urllib.request.urlopen(image_url) as url:
+        raw_content = url.read()
+        content_base64 = base64.standard_b64encode(raw_content)
+        return content_base64

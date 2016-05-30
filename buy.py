@@ -40,4 +40,4 @@ def download_and_base64(image_url):
     with urllib.request.urlopen(image_url) as url:
         raw_content = url.read()
         content_base64 = base64.urlsafe_b64encode(raw_content)
-        return content_base64
+        return content_base64.decode()

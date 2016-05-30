@@ -21,32 +21,38 @@ payment = Payment(app, Wallet())
 def deepstyle():
 
     json_content=request.get_json()
-    print("json: {} type: {}".format(json_content, type(json_content)))
     job = buy.buy_request_to_job(json_content)
-    print("job keys: {}".format(job.keys()))
 
-    # POST to sync gateway using username/password passed into CLI
     sg_client = sync_gateway_client.Client(sync_gateway_settings)
 
-    print("adding doc")
     doc = sg_client.add_doc(job)
-    
-    print("doc: {}".format(doc))
     
     # get the doc ID and return it as the token
     return buy.sync_gateway_doc_to_token(doc)
 
 
-@app.route('/redeem/<token>', methods=['GET'])
-def deepstyle_get_result(token):
-
-    print("token: {}".format(token))
+@app.route('/redeem/<token>/status', methods=['GET'])
+def deepstyle_get_result_status(token):
 
     sg_client = sync_gateway_client.Client(sync_gateway_settings)
 
     doc = sg_client.get_doc(token)
 
-    print("doc: {}".format(doc))
+    if doc["state"] == "PROCESSING_SUCCESSFUL":
+
+        content = {'status': doc["state"]}
+        return (flask.jsonify(**content), 200)
+
+    else:
+        content = {'status': doc["state"]}
+        return (flask.jsonify(**content), 404)
+
+@app.route('/redeem/<token>/image', methods=['GET'])
+def deepstyle_get_result_image(token):
+
+    sg_client = sync_gateway_client.Client(sync_gateway_settings)
+
+    doc = sg_client.get_doc(token)
 
     if doc["state"] == "PROCESSING_SUCCESSFUL":
 
@@ -56,9 +62,8 @@ def deepstyle_get_result(token):
 
     else:
         content = {'status': doc["state"]}
-        return content, status.HTTP_404_NOT_FOUND
-
-
+        return (flask.jsonify(**content), 404)
+    
 
 @app.route('/manifest')
 def manifest():

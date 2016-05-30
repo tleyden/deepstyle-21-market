@@ -20,9 +20,7 @@ class Client:
 
     def add_doc(self, doc):
 
-        print("going to serialize doc")
         body = json.dumps(doc)
-        print("serialized doc, body len: {}", len(body))
         
         resp = requests.post(
             "{0}/{1}/".format(self.url, self.db),
@@ -33,7 +31,32 @@ class Client:
         resp.raise_for_status()
         resp_json = resp.json()
         return resp_json
-        
+
+    def get_doc(self, doc_id):
+        resp = requests.get(
+            "{0}/{1}/{2}".format(self.url, self.db, doc_id),
+            auth=HTTPBasicAuth(self.username, self.password),
+            headers=self.headers
+        )
+        resp.raise_for_status()
+        resp_json = resp.json()
+        return resp_json
+
+
+    def get_doc_attachment(self, doc_id, doc_rev, attachment_name):
+        resp = requests.get(
+            "{0}/{1}/{2}/{3}?rev={4}".format(
+                self.url,
+                self.db,
+                doc_id,
+                attachment_name,
+                doc_rev,
+            ),
+            auth=HTTPBasicAuth(self.username, self.password),
+            headers=self.headers
+        )
+        resp.raise_for_status()
+        return resp
 
 def discover_settings():
 

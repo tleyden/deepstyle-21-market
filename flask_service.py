@@ -37,21 +37,27 @@ def deepstyle():
     return buy.sync_gateway_doc_to_token(doc)
 
 
-@app.route('/redeem', methods=['GET'])
-def deepstyle_get_result():
+@app.route('/redeem/<token>', methods=['GET'])
+def deepstyle_get_result(token):
 
-    # Get the document based on the token
+    print("token: {}".format(token))
 
-    # If state == in progress, return json like
-    # {"status": "working", "message": "Not yet finished."}
-    
-    # If state == finished, get image contents
+    sg_client = sync_gateway_client.Client(sync_gateway_settings)
 
-    # Return image content directly
-    
-    # Return json URL with link to image
-    
-    pass
+    doc = sg_client.get_doc(token)
+
+    print("doc: {}".format(doc))
+
+    if doc["state"] == "PROCESSING_SUCCESSFUL":
+
+        # fetch attachment and return it
+        resp = sg_client.get_doc_attachment(doc["_id"], doc["_rev"], "result_image")
+        return (resp.content, resp.status_code, resp.headers.items())
+
+    else:
+        content = {'status': doc["state"]}
+        return content, status.HTTP_404_NOT_FOUND
+
 
 
 @app.route('/manifest')

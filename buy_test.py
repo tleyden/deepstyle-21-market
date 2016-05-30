@@ -21,8 +21,9 @@ class BuyTestUrls(unittest.TestCase):
         attachments = result["_attachments"]
         self.assertEqual(len(attachments), 2)
         style_image_data = attachments["style_image"]["data"]
-        content_image_data = attachments["content_image"]["data"]
+        content_image_data = attachments["source_image"]["data"]
         print("len(style_image_data): {}".format(len(style_image_data)))
+        print("len(content_image_data): {}".format(len(content_image_data)))
         self.assertTrue(len(style_image_data) > 0)
         self.assertTrue(len(content_image_data) > 0)
 
@@ -44,7 +45,7 @@ class BuyTestBase64Data(unittest.TestCase):
         attachments = result["_attachments"]
         self.assertEqual(len(attachments), 2)
         style_image_data = attachments["style_image"]["data"]
-        content_image_data = attachments["content_image"]["data"]
+        content_image_data = attachments["source_image"]["data"]
         self.assertTrue(len(style_image_data) > 0)
         self.assertTrue(len(content_image_data) > 0)
         

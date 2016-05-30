@@ -30,15 +30,12 @@ def deepstyle():
 
     print("adding doc")
     doc = sg_client.add_doc(job)
-    print("doc added")
     
-    # print("doc: {}".format(doc))
-    print("doc added")
-    print("doc type: {}".format(doc))
+    print("doc: {}".format(doc))
     
     # get the doc ID and return it as the token
+    return buy.sync_gateway_doc_to_token(doc)
 
-    return '{"token": "yNoXE"}'
 
 @app.route('/redeem', methods=['GET'])
 def deepstyle_get_result():

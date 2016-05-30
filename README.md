@@ -1,4 +1,10 @@
 
+## Calling flask service
+
+```
+curl -H "Content-Type: application/json" -X POST -d '{"style_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/van_gogh.jpg", "content_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/backyard.jpg"}' http://localhost:8000/buy
+```
+
 ## Building AMI
 
 ```

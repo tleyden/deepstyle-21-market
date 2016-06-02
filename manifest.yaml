@@ -32,17 +32,44 @@ paths:
       parameters:
         - in: body
           name: body
-          description: Pass image url and other info to decode image to text via OCR
+          description: The style and content images specified via a URL OR raw base64 data
           required: true
           schema:
             $ref: "#/definitions/Buy"
       responses:
         200:
           description: OK
+  /redeem/{token}/status:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - name: token
+          in: path
+          type: string
+          description: The token returned from calling the buy endpoint
+          required: true
+      responses:
+        200:
+          description: The finished image is ready to be downloaded
+        404:
+          description: The image is still being processed
+  /redeem/{token}/image:
+    get:
+      produces:
+        - image/png
+      parameters:
+        - name: token
+          in: path
+          type: string
+          description: The token returned from calling the buy endpoint
+          required: true
+      responses:
+        200:
+          description: The content of the finished image
 definitions:
   Buy:
     type: object
-    description: Request to create a new DeepStyle image given the source and style image
     properties:
       style_image_url:
         type: string
@@ -57,6 +84,5 @@ definitions:
         type: string
         description: The base64 data of the content image to process.  Use this instead of content_image_url, but not both.
 
-              
-          
         
+

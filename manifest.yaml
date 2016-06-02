@@ -5,15 +5,15 @@ info:
   title: DeepStyle
   description: Run DeepStyle (aka NeuralStyle) in the cloud 
   x-21-github-profile-url: https://github.com/tleyden
-  x-21-github-project-url: https://github.com/tleyden/deepstyle
-  x-21-quick-buy: "21 buy -X POST -H \"Content-Type: application/json\" -d 'TBD' http://10.244.164.194:8000/deepstyle"
+  x-21-github-project-url: https://github.com/tleyden/deepstyle-21-market
+  x-21-quick-buy: "21 buy -X POST -H \"Content-Type: application/json\" -d 'TBD' http://10.244.164.194:8001/deepstyle"
   x-21-category: utilities
   x-21-keywords:
     - OCR
   x-21-app-image: "https://cdn.filepicker.io/api/file/FIXME"
   x-21-total-price:
-    min: 10000
-    max: 10000
+    min: 500000
+    max: 500000
   contact:
     name: Traun Leyden
     email: traun.leyden@gmail.com
@@ -22,7 +22,7 @@ info:
 schemes:
   - http
 basePath: /
-host: 10.244.164.194:8000
+host: 10.244.164.194:8001
 x-21-manifest-path: /manifest
 paths:
   /buy:

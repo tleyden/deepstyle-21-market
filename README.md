@@ -5,11 +5,12 @@ First you will need to get a [DeepStyle Sync Gateway database](https://github.co
 
 ```
 $ git clone <this repo>
+$ cd deepstyle-21-market
 $ export DEEPSTYLE_SYNC_GATEWAY_URL=http://yourserver.io
 $ export DEEPSTYLE_SYNC_GATEWAY_DB=yourdb
 $ export DEEPSTYLE_SYNC_GATEWAY_USERNAME=your_username
 $ export DEEPSTYLE_SYNC_GATEWAY_PASSWORD=password
-
+$ python3 flask_service.py
 ```
 
 ## Calling API

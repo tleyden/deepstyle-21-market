@@ -1,5 +1,18 @@
 
-## Calling flask service
+## Running service
+
+First you will need to get a [DeepStyle Sync Gateway database](https://github.com/tleyden/deepstyle) and supporting change listeners up and running.
+
+```
+$ git clone <this repo>
+$ export DEEPSTYLE_SYNC_GATEWAY_URL=http://yourserver.io
+$ export DEEPSTYLE_SYNC_GATEWAY_DB=yourdb
+$ export DEEPSTYLE_SYNC_GATEWAY_USERNAME=your_username
+$ export DEEPSTYLE_SYNC_GATEWAY_PASSWORD=password
+
+```
+
+## Calling API
 
 ```
 curl -H "Content-Type: application/json" -X POST -d '{"style_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/van_gogh.jpg", "content_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/backyard.jpg"}' http://localhost:8000/buy

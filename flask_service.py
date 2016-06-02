@@ -17,7 +17,7 @@ app = flask.Flask(__name__)
 payment = Payment(app, Wallet())
 
 @app.route('/buy', methods=['POST'])
-## @payment.required(10000)
+@payment.required(500000)
 def deepstyle():
 
     json_content=request.get_json()
@@ -77,4 +77,4 @@ def manifest():
 if __name__ == "__main__":
     
     app.debug = True
-    app.run(host="0.0.0.0", port=8000)
+    app.run(host="0.0.0.0", port=8001)

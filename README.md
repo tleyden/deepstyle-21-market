@@ -8,10 +8,19 @@ A wrapper around the [neural-art](https://github.com/jcjohnson/neural-style) alg
 | <img src="http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg" width="200">     |  <img src="http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg" width="200"> | <img src="http://tleyden-misc.s3.amazonaws.com/21style/flowers_pollock_key.jpg" width="200"> |
 
 
+## Using the service
+
+```
+21 buy --maxprice 275000 -H "Content-Type: application/json" -X POST \ 
+-d '{"style_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg", \
+"content_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg"}' \ 
+http://10.244.164.194:8001/buy
+```
 
 ## Running service
 
-First you will need to get a [DeepStyle Sync Gateway database](https://github.com/tleyden/deepstyle) and supporting change listeners up and running.
+Follow the [deepstyle](https://github.com/tleyden/deepstyle) instructions to get the service up and running, and then run the python wrapper to put it on the 21 marketplace.
+
 
 ```
 $ git clone <this repo>

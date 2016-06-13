@@ -9,7 +9,10 @@ info:
   x-21-quick-buy: "21 buy --maxprice 275000 -H \"Content-Type: application/json\" -X POST -d '{\"style_image_url\": \"http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg\", \"content_image_url\": \"http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg\"}' http://10.244.164.194:8001/buy"
   x-21-category: utilities
   x-21-keywords:
-    - OCR
+    - NeuralArt
+    - StyleTransfer
+    - DeepArt
+    - DeepLearning
   x-21-app-image: "https://cdn.filepicker.io/api/file/5niwxYoNRUe7CiibzHaZ"
   x-21-total-price:
     min: 275000

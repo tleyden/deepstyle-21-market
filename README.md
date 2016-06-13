@@ -5,7 +5,8 @@ A wrapper around the [neural-art](https://github.com/jcjohnson/neural-style) alg
 
 | Image        | Style           | Result  |
 | ------------- |:-------------:| -----:|
-| ![image](http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg = 250x250)      | ![style](http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg = 250x250) | ![result](http://tleyden-misc.s3.amazonaws.com/21style/flowers_pollock_key.jpg | = 250x250) |
+| <img src="http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg" width="200">     |  <img src="http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg" width="200"> | <img src="http://tleyden-misc.s3.amazonaws.com/21style/flowers_pollock_key.jpg" width="200"> |
+
 
 
 ## Running service

@@ -1,6 +1,13 @@
 
 A wrapper around the [neural-art](https://github.com/jcjohnson/neural-style) algorithm on the [21 marketplace](https://21.co/mkt/).  This repo is a python wrapper around the [deepstyle](https://github.com/tleyden/deepstyle) backend code to allow it to accept 21 marketplace payments.
 
+## Example
+
+| Image        | Style           | Result  |
+| ------------- |:-------------:| -----:|
+| ![image](http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg = 250x250)      | ![style](http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg = 250x250) | ![result](http://tleyden-misc.s3.amazonaws.com/21style/flowers_pollock_key.jpg | = 250x250) |
+
+
 ## Running service
 
 First you will need to get a [DeepStyle Sync Gateway database](https://github.com/tleyden/deepstyle) and supporting change listeners up and running.

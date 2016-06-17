@@ -10,12 +10,16 @@ A wrapper around the [neural-art](https://github.com/jcjohnson/neural-style) alg
 
 ## Using the service
 
+Install the [21 client](https://21.co/signup/) and run:
+
 ```
 21 buy --maxprice 275000 -H "Content-Type: application/json" -X POST \ 
 -d '{"style_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg", \
 "content_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg"}' \ 
 http://10.244.164.194:8001/buy
 ```
+
+This will kick off an image processing request for the small fee of 275,000 Satoshis (a fraction of a bitcoin)
 
 ## Running service
 

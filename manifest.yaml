@@ -6,7 +6,7 @@ info:
   description: Run DeepStyle (aka NeuralStyle) in the cloud 
   x-21-github-profile-url: https://github.com/tleyden
   x-21-github-project-url: https://github.com/tleyden/deepstyle-21-market
-  x-21-quick-buy: 21 buy http://10.244.164.194:8001/buy --maxprice 275000 --data '{"style_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg", "content_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg"}'
+  x-21-quick-buy: 21 buy http://10.244.164.194:8001/buy --maxprice 10000 --data '{"style_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/pollock_key.jpg", "content_image_url": "http://tleyden-misc.s3.amazonaws.com/21style/flowers.jpg"}'
   x-21-category: utilities
   x-21-keywords:
     - NeuralArt
@@ -15,8 +15,8 @@ info:
     - DeepLearning
   x-21-app-image: "https://cdn.filepicker.io/api/file/5niwxYoNRUe7CiibzHaZ"
   x-21-total-price:
-    min: 275000
-    max: 275000
+    min: 10000
+    max: 10000
   contact:
     name: Traun Leyden
     email: traun.leyden@gmail.com

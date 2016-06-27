@@ -17,7 +17,7 @@ app = flask.Flask(__name__)
 payment = Payment(app, Wallet())
 
 @app.route('/buy', methods=['POST'])
-@payment.required(275000)
+@payment.required(10000)
 def deepstyle():
 
     json_content=request.get_json()
